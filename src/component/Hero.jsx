@@ -1,4 +1,4 @@
-
+import Object from "./object";
 
 // login status function
 const LoginStatus = (status) => {
@@ -8,9 +8,19 @@ const LoginStatus = (status) => {
         return "Logged Out";
     }
 }
+const itemObj={
+    name: "Item 1",
+    price: 100,
+    description: "This is a sample item."
+}
+
+const buttonClick=()=>{
+    alert(" Hello World! This is a button click event from child component.");
+}
 
 
-const Hero = () => {
+
+const Hero = (props) => {
     let marks=80;
     let students = ['John', 'Jane', 'Doe', 'Alice', 'Bob'];
     let status = true; // true for logged in, false for logged out
@@ -79,7 +89,15 @@ const Hero = () => {
 
 {/* conditional rendering end */}
 
+{/* props start  ,props perent thaka data child a attribute ar maddoma nita para*/}
 
+<h1>{props.title}</h1>
+<h1>{props.des}</h1>
+
+<Object  item={itemObj}   childButtonClick={buttonClick}/>
+
+
+{/* props end */}
 
 
 

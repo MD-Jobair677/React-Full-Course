@@ -10,7 +10,7 @@ const App =()=>{
   return(
     <div>
       <Header />
-      <Hero />
+      <Hero  title='This is props data'  des='this is props data description'   />
       <ContactForm />
       <Footer />
       </div>
