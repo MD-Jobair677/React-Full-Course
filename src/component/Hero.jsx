@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import Object from "./object";
 
 // login status function
@@ -20,10 +21,43 @@ const buttonClick=()=>{
 
 
 
+
+
+
 const Hero = (props) => {
     let marks=80;
     let students = ['John', 'Jane', 'Doe', 'Alice', 'Bob'];
     let status = true; // true for logged in, false for logged out
+
+    const myHeadLine= useRef();
+    const change =()=>{
+    myHeadLine.current.innerText="Hello World! This is a headline changed by useRef hook.";
+}
+
+
+// cashe data from api call
+let storeApiData= useRef(null);
+let showApiData= useRef();
+const getData = async () => {
+    let response = await fetch('https://dummyjson.com/products');
+storeApiData.current = await response.json();
+}
+
+
+const showData = () => {
+    showApiData.current.innerText = JSON.stringify(storeApiData.current);
+}
+
+
+
+
+
+
+
+
+
+
+
   return (
     <div className="hero">
       <div className="hero-content">
@@ -98,6 +132,28 @@ const Hero = (props) => {
 
 
 {/* props end */}
+
+
+
+
+{/* start hooks */}
+
+<h1 ref={myHeadLine} ></h1>
+
+<button onClick={change} >click</button>
+
+
+
+
+<p ref={showApiData} ></p>
+<button onClick={getData} >Get Data </button>
+<button onClick={showData} >Show Data</button>
+
+
+
+
+
+{/* end hooks */}
 
 
 
