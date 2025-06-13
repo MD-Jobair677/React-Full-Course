@@ -1,8 +1,19 @@
 
 
+// login status function
+const LoginStatus = (status) => {
+    if (status) {
+        return "Logged In";
+    } else {
+        return "Logged Out";
+    }
+}
+
 
 const Hero = () => {
     let marks=80;
+    let students = ['John', 'Jane', 'Doe', 'Alice', 'Bob'];
+    let status = true; // true for logged in, false for logged out
   return (
     <div className="hero">
       <div className="hero-content">
@@ -36,6 +47,42 @@ const Hero = () => {
 )()}
 
 {/* immediately invoked function end */}
+
+
+
+{/* loop in jsx start */}
+<ol>
+
+{
+   
+ 
+   students.map((student,index)=>{
+        return <li key={index.toString}>{student}</li>;
+    })
+}
+
+</ol>
+
+
+{/* loop in jsx end */}
+
+
+{/* conditional rendering start */}
+
+
+<h1>Login status</h1>
+<button>{LoginStatus(status)}</button>
+
+
+
+
+
+{/* conditional rendering end */}
+
+
+
+
+
 
     </div>
   );
