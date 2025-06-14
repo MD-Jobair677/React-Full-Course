@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import Object from "./object";
+import { useState } from "react";
 
 // login status function
 const LoginStatus = (status) => {
@@ -50,7 +51,8 @@ const showData = () => {
 
 
 
-
+// useSate
+const [number, setNumber] = useState(0);
 
 
 
@@ -154,6 +156,16 @@ const showData = () => {
 
 
 {/* end hooks */}
+
+
+
+{/* use state start */}
+
+
+<p>Number:{number}</p>
+<button onClick={() => setNumber(number + 1)}>Increment</button>
+
+{/* use state end */}
 
 
 
